@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online document compression and conversion tool. Reduce file sizes and convert between PDF, Word, Excel, PowerPoint, images and more.">
+    <meta name="keywords" content="document compressor, file converter, PDF converter, Word converter, reduce file size, optimize documents">
+    <meta name="author" content="DocCompress Pro">
+    <meta name="robots" content="index, follow">
+    <title>DocCompress Pro | Online Document Compression & Conversion Tool</title>
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="DocCompress Pro">
+    <meta property="og:description" content="Free online document compression and conversion tool for all your file needs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doccompresspro.example.com">
+    <meta property="og:image" content="https://doccompresspro.example.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://doccompresspro.example.com">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-light: #eef2ff;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --success-color: #4cc9f0;
+            --light-gray: #f8f9fa;
+            --medium-gray: #adb5bd;
+            --dark-gray: #212529;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --border-radius-sm: 6px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark-gray);
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.75rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .ad-banner {
+            background-color: var(--light-gray);
+            padding: 0.75rem;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .ad-banner.top {
+            margin-bottom: 1.5rem;
+        }
+        
+        .ad-banner.bottom {
+            margin-top: 1.5rem;
+        }
+        
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            width: 100%;
+        }
+        
+        .tool-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .tool-header {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .tool-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .tool-header p {
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+        
+        .tool-content {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .tool-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+        }
+        
+        .upload-area {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .upload-box {
+            border: 2px dashed #d1d5db;
+            border-radius: var(--border-radius-md);
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 2rem;
+            background-color: var(--primary-light);
+        }
+        
+        .upload-box:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .upload-box.active {
+            border-color: var(--success-color);
+            background-color: rgba(76, 201, 240, 0.05);
+        }
+        
+        .upload-box i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .upload-box h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+        }
+        
+        .upload-box p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+        
+        #file-input {
+            display: none;
+        }
+        
+        .options-area {
+            margin-top: 2rem;
+        }
+        
+        .option-group {
+            margin-bottom: 2rem;
+        }
+        
+        .option-group h4 {
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .option-group h4 i {
+            color: var(--primary-color);
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .radio-option {
+            display: none;
+        }
+        
+        .radio-option + label {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--light-gray);
+            background-color: white;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-option:checked + label {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+        }
+        
+        .radio-option + label:hover:not(:checked) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .radio-option + label i {
+            font-size: 0.9rem;
+        }
+        
+        .slider-group {
+            margin-top: 1.25rem;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        
+        .slider {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: #e9ecef;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .slider:hover {
+            background: #dee2e6;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 6px rgba(67, 97, 238, 0.3);
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+        
+        .slider-value {
+            min-width: 50px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-option {
+            display: none;
+        }
+        
+        .checkbox-option + label {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--light-gray);
+            background-color: white;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-option:checked + label {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-option + label:hover:not(:checked) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--dark-gray);
+            border: 1px solid #dee2e6;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f8f9fa;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        
+        .file-info-card, .preview-card, .ad-card, .stats-card {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 1.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .card-title i {
+            color: var(--primary-color);
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .file-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .file-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        
+        .file-info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .file-info-label {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .file-info-label i {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .file-info-value {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .preview-content {
+            margin-top: 1.25rem;
+            text-align: center;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 220px;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f1f3f5;
+        }
+        
+        .preview-placeholder {
+            padding: 2.5rem 2rem;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+            color: var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border: 1px dashed #e9ecef;
+        }
+        
+        .preview-placeholder i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+        
+        .progress-container {
+            margin-top: 1.5rem;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+        
+        .result-area {
+            display: none;
+            margin-top: 2rem;
+            background-color: rgba(76, 201, 240, 0.05);
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-area h4 {
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .result-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .result-stat {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .result-stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--success-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .result-stat-label {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        .download-btn {
+            margin-top: 1.5rem;
+        }
+        
+        .ad-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 3rem 1.5rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-column li {
+            transition: var(--transition);
+        }
+        
+        .footer-column li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-column a {
+            color: #ced4da;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .footer-column a i {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.75rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                display: none;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+                left: 0;
+                top: 70px;
+                box-shadow: var(--shadow-md);
+                border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+                overflow: hidden;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid #f1f3f5;
+            }
+            
+            nav a {
+                display: block;
+                padding: 1rem;
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .tool-header {
+                padding: 1.5rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .upload-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .radio-group, .checkbox-group {
+                gap: 0.5rem;
+            }
+            
+            .radio-option + label, .checkbox-option + label {
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.25rem;
+            }
+            
+            .tool-header h2 {
+                font-size: 1.35rem;
+            }
+            
+            .tool-header p {
+                font-size: 0.95rem;
+            }
+            
+            .upload-box h3 {
+                font-size: 1.15rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation for file upload */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .upload-box.pulse {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-file-archive"></i>
+                </div>
+                <span class="logo-text">DocCompress Pro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-compress-alt"></i> Compress</a></li>
+                    <li><a href="#"><i class="fas fa-exchange-alt"></i> Convert</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Tools</a></li>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="ad-banner top">
+        <!-- AdSense Header Banner -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+             crossorigin="anonymous"></script>
+        <!-- Document Compressor Top Banner -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2><i class="fas fa-compress-alt"></i> Document Compression & Conversion</h2>
+                <p>Reduce file sizes and convert between formats while maintaining quality. Supports PDF, Word, Excel, PowerPoint, images and more.</p>
+            </div>
+            
+            <div class="tool-content">
+                <div class="upload-area">
+                    <div class="upload-box" id="uploadBox">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag & Drop Your Files Here</h3>
+                        <p>or click to browse files (Max: 50MB)</p>
+                        <input type="file" id="file-input">
+                    </div>
+                    
+                    <div class="options-area">
+                        <div class="option-group">
+                            <h4><i class="fas fa-cog"></i> Operation Mode</h4>
+                            <div class="radio-group">
+                                <input type="radio" id="mode-compress" name="operation-mode" class="radio-option" value="compress" checked>
+                                <label for="mode-compress"><i class="fas fa-compress-alt"></i> Compress</label>
+                                
+                                <input type="radio" id="mode-convert" name="operation-mode" class="radio-option" value="convert">
+                                <label for="mode-convert"><i class="fas fa-exchange-alt"></i> Convert</label>
+                                
+                                <input type="radio" id="mode-both" name="operation-mode" class="radio-option" value="both">
+                                <label for="mode-both"><i class="fas fa-tasks"></i> Both</label>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group" id="compress-options">
+                            <h4><i class="fas fa-tachometer-alt"></i> Compression Level</h4>
+                            <div class="slider-group">
+                                <div class="slider-container">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="compression-slider">
+                                    <span class="slider-value" id="compression-value">50%</span>
+                                </div>
+                                <small>Higher compression reduces quality more</small>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group" id="convert-options" style="display: none;">
+                            <h4><i class="fas fa-exchange-alt"></i> Convert To</h4>
+                            <div class="radio-group">
+                                <input type="radio" id="format-pdf" name="output-format" class="radio-option" value="pdf" checked>
+                                <label for="format-pdf"><i class="fas fa-file-pdf"></i> PDF</label>
+                                
+                                <input type="radio" id="format-docx" name="output-format" class="radio-option" value="docx">
+                                <label for="format-docx"><i class="fas fa-file-word"></i> Word</label>
+                                
+                                <input type="radio" id="format-pptx" name="output-format" class="radio-option" value="pptx">
+                                <label for="format-pptx"><i class="fas fa-file-powerpoint"></i> PowerPoint</label>
+                                
+                                <input type="radio" id="format-xlsx" name="output-format" class="radio-option" value="xlsx">
+                                <label for="format-xlsx"><i class="fas fa-file-excel"></i> Excel</label>
+                                
+                                <input type="radio" id="format-jpg" name="output-format" class="radio-option" value="jpg">
+                                <label for="format-jpg"><i class="fas fa-file-image"></i> JPG</label>
+                                
+                                <input type="radio" id="format-png" name="output-format" class="radio-option" value="png">
+                                <label for="format-png"><i class="fas fa-file-image"></i> PNG</label>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <h4><i class="fas fa-magic"></i> Optimization Options</h4>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="opt-quality" class="checkbox-option" checked>
+                                <label for="opt-quality"><i class="fas fa-check-circle"></i> Maintain Quality</label>
+                                
+                                <input type="checkbox" id="opt-metadata" class="checkbox-option">
+                                <label for="opt-metadata"><i class="fas fa-tags"></i> Remove Metadata</label>
+                                
+                                <input type="checkbox" id="opt-preview" class="checkbox-option" checked>
+                                <label for="opt-preview"><i class="fas fa-eye"></i> Generate Preview</label>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" id="process-btn" disabled>
+                                <i class="fas fa-cog"></i> Process File
+                            </button>
+                            <button class="btn btn-secondary" id="reset-btn">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                        
+                        <div class="progress-container" id="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="progress-text" id="progress-text">Processing your file...</div>
+                        </div>
+                        
+                        <div class="result-area" id="result-area">
+                            <h4><i class="fas fa-check-circle"></i> Successfully Processed!</h4>
+                            
+                            <div class="result-stats">
+                                <div class="result-stat">
+                                    <div class="result-stat-value" id="original-size">0 KB</div>
+                                    <div class="result-stat-label">Original</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-stat-value" id="new-size">0 KB</div>
+                                    <div class="result-stat-label">New</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-stat-value" id="savings">0%</div>
+                                    <div class="result-stat-label">Savings</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary download-btn" id="download-btn">
+                                <i class="fas fa-download"></i> Download File
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <div class="ad-card">
+                        <!-- AdSense Sidebar Rectangle -->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                             crossorigin="anonymous"></script>
+                        <!-- Document Compressor Sidebar -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                             data-ad-slot="YOUR_AD_SLOT_ID"
+                             data-ad-format="rectangle"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                    <div class="file-info-card">
+                        <h3 class="card-title"><i class="fas fa-info-circle"></i> File Information</h3>
+                        <div class="file-info" id="file-info">
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-file"></i> Name:</span>
+                                <span class="file-info-value" id="file-name">-</span>
+                            </div>
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-file-code"></i> Type:</span>
+                                <span class="file-info-value" id="file-type">-</span>
+                            </div>
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-weight-hanging"></i> Size:</span>
+                                <span class="file-info-value" id="file-size">-</span>
+                            </div>
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-calendar-alt"></i> Last Modified:</span>
+                                <span class="file-info-value" id="file-modified">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-card">
+                        <h3 class="card-title"><i class="fas fa-eye"></i> File Preview</h3>
+                        <div class="preview-content" id="preview-content">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-file-alt"></i>
+                                <p>File preview will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card">
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Today's Stats</h3>
+                        <div class="file-info">
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-file-upload"></i> Files Processed:</span>
+                                <span class="file-info-value">1,248</span>
+                            </div>
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-save"></i> Total Savings:</span>
+                                <span class="file-info-value">3.7 GB</span>
+                            </div>
+                            <div class="file-info-item">
+                                <span class="file-info-label"><i class="fas fa-percentage"></i> Avg. Reduction:</span>
+                                <span class="file-info-value">42%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="ad-banner bottom">
+        <!-- AdSense Footer Banner -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+             crossorigin="anonymous"></script>
+        <!-- Document Compressor Footer Banner -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> PDF Compressor</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Image Compressor</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Word to PDF</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> PDF to Word</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Excel to PDF</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> API Docs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 DocCompress Pro. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+                this.classList.toggle('active');
+            });
+            
+            // File upload handling
+            const uploadBox = document.getElementById('uploadBox');
+            const fileInput = document.getElementById('file-input');
+            const processBtn = document.getElementById('process-btn');
+            
+            uploadBox.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // Drag and drop functionality
+            uploadBox.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('active');
+                this.classList.add('pulse');
+            });
+            
+            uploadBox.addEventListener('dragleave', function() {
+                this.classList.remove('active');
+                this.classList.remove('pulse');
+            });
+            
+            uploadBox.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('active');
+                this.classList.remove('pulse');
+                
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelection(e.dataTransfer.files[0]);
+                }
+            });
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files.length) {
+                    handleFileSelection(this.files[0]);
+                }
+            });
+            
+            function handleFileSelection(file) {
+                // Add pulse animation to show file was accepted
+                uploadBox.classList.add('pulse');
+                setTimeout(() => {
+                    uploadBox.classList.remove('pulse');
+                }, 1000);
+                
+                // Update file info
+                document.getElementById('file-name').textContent = file.name;
+                document.getElementById('file-type').textContent = file.type || getFileTypeFromName(file.name);
+                document.getElementById('file-size').textContent = formatFileSize(file.size);
+                document.getElementById('file-modified').textContent = new Date(file.lastModified).toLocaleString();
+                
+                // Enable process button
+                processBtn.disabled = false;
+                processBtn.classList.remove('btn-disabled');
+                
+                // Show preview if it's an image
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewContent = document.getElementById('preview-content');
+                        previewContent.innerHTML = `<img src="${e.target.result}" alt="Preview" class="preview-image">`;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    const previewContent = document.getElementById('preview-content');
+                    const icon = getFileIcon(file);
+                    previewContent.innerHTML = `
+                        <div class="preview-placeholder">
+                            ${icon}
+                            <p>${file.name}</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            function getFileTypeFromName(filename) {
+                const extension = filename.split('.').pop().toLowerCase();
+                const types = {
+                    'pdf': 'application/pdf',
+                    'doc': 'application/msword',
+                    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'xls': 'application/vnd.ms-excel',
+                    'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'ppt': 'application/vnd.ms-powerpoint',
+                    'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                    'jpg': 'image/jpeg',
+                    'jpeg': 'image/jpeg',
+                    'png': 'image/png',
+                    'gif': 'image/gif',
+                    'txt': 'text/plain',
+                    'zip': 'application/zip',
+                    'rar': 'application/x-rar-compressed'
+                };
+                return types[extension] || 'Unknown';
+            }
+            
+            function getFileIcon(file) {
+                const type = file.type;
+                const name = file.name.toLowerCase();
+                
+                if (type.startsWith('image/')) {
+                    return '<i class="fas fa-file-image"></i>';
+                } else if (type === 'application/pdf') {
+                    return '<i class="fas fa-file-pdf"></i>';
+                } else if (type === 'application/msword' || type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || name.endsWith('.doc') || name.endsWith('.docx')) {
+                    return '<i class="fas fa-file-word"></i>';
+                } else if (type === 'application/vnd.ms-excel' || type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || name.endsWith('.xls') || name.endsWith('.xlsx')) {
+                    return '<i class="fas fa-file-excel"></i>';
+                } else if (type === 'application/vnd.ms-powerpoint' || type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation' || name.endsWith('.ppt') || name.endsWith('.pptx')) {
+                    return '<i class="fas fa-file-powerpoint"></i>';
+                } else if (type === 'application/zip' || type === 'application/x-rar-compressed' || name.endsWith('.zip') || name.endsWith('.rar')) {
+                    return '<i class="fas fa-file-archive"></i>';
+                } else {
+                    return '<i class="fas fa-file-alt"></i>';
+                }
+            }
+            
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+            
+            // Operation mode toggle
+            const modeOptions = document.querySelectorAll('input[name="operation-mode"]');
+            const compressOptions = document.getElementById('compress-options');
+            const convertOptions = document.getElementById('convert-options');
+            
+            modeOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    if (this.value === 'compress') {
+                        compressOptions.style.display = 'block';
+                        convertOptions.style.display = 'none';
+                    } else if (this.value === 'convert') {
+                        compressOptions.style.display = 'none';
+                        convertOptions.style.display = 'block';
+                    } else {
+                        compressOptions.style.display = 'block';
+                        convertOptions.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Compression slider
+            const compressionSlider = document.getElementById('compression-slider');
+            const compressionValue = document.getElementById('compression-value');
+            
+            compressionSlider.addEventListener('input', function() {
+                compressionValue.textContent = this.value + '%';
+            });
+            
+            // Process button
+            processBtn.addEventListener('click', function() {
+                if (!fileInput.files.length) return;
+                
+                const file = fileInput.files[0];
+                const operationMode = document.querySelector('input[name="operation-mode"]:checked').value;
+                const compressionLevel = compressionSlider.value;
+                const outputFormat = document.querySelector('input[name="output-format"]:checked')?.value || file.type.split('/')[1];
+                
+                // Show progress
+                const progressContainer = document.getElementById('progress-container');
+                const progressFill = document.getElementById('progress-fill');
+                const progressText = document.getElementById('progress-text');
+                
+                progressContainer.style.display = 'block';
+                progressFill.style.width = '0%';
+                
+                // Disable process button during processing
+                processBtn.disabled = true;
+                processBtn.classList.add('btn-disabled');
+                
+                // Simulate processing (in a real app, this would be an actual file processing)
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 10;
+                    if (progress > 100) progress = 100;
+                    
+                    progressFill.style.width = progress + '%';
+                    progressText.textContent = getProgressMessage(progress);
+                    
+                    if (progress === 100) {
+                        clearInterval(interval);
+                        showResults(file, operationMode, compressionLevel, outputFormat);
+                        processBtn.disabled = false;
+                        processBtn.classList.remove('btn-disabled');
+                    }
+                }, 300);
+            });
+            
+            function getProgressMessage(progress) {
+                if (progress < 30) return "Analyzing file...";
+                if (progress < 60) return "Optimizing content...";
+                if (progress < 90) return "Applying compression...";
+                return "Finalizing...";
+            }
+            
+            function showResults(file, operationMode, compressionLevel, outputFormat) {
+                const progressContainer = document.getElementById('progress-container');
+                const resultArea = document.getElementById('result-area');
+                
+                progressContainer.style.display = 'none';
+                resultArea.style.display = 'block';
+                
+                // Calculate random results for demo purposes
+                const originalSize = file.size;
+                let newSize;
+                
+                if (operationMode === 'compress') {
+                    const reduction = 20 + (compressionLevel / 100 * 50); // 20-70% reduction
+                    newSize = originalSize * (1 - (reduction / 100));
+                } else if (operationMode === 'convert') {
+                    // Conversion might increase or decrease size slightly
+                    const change = (Math.random() * 30) - 10; // -10% to +20%
+                    newSize = originalSize * (1 + (change / 100));
+                } else {
+                    // Both compression and conversion
+                    const reduction = 15 + (compressionLevel / 100 * 40); // 15-55% reduction
+                    newSize = originalSize * (1 - (reduction / 100));
+                }
+                
+                // Ensure new size isn't bigger than original for demo
+                if (newSize > originalSize) {
+                    newSize = originalSize * 0.9;
+                }
+                
+                // Ensure minimum size
+                if (newSize < 1024) newSize = 1024;
+                
+                const savings = ((originalSize - newSize) / originalSize * 100).toFixed(2);
+                
+                document.getElementById('original-size').textContent = formatFileSize(originalSize);
+                document.getElementById('new-size').textContent = formatFileSize(newSize);
+                document.getElementById('savings').textContent = savings + '%';
+                
+                // Set up download button
+                const downloadBtn = document.getElementById('download-btn');
+                downloadBtn.onclick = function() {
+                    alert('In a real implementation, this would download the processed file.\n\n' +
+                          `Operation: ${operationMode}\n` +
+                          `Compression: ${operationMode.includes('compress') ? compressionLevel + '%' : 'N/A'}\n` +
+                          `Output Format: ${outputFormat}\n` +
+                          `Original Size: ${formatFileSize(originalSize)}\n` +
+                          `New Size: ${formatFileSize(newSize)}\n` +
+                          `Savings: ${savings}%`);
+                };
+            }
+            
+            // Reset button
+            document.getElementById('reset-btn').addEventListener('click', function() {
+                fileInput.value = '';
+                document.getElementById('file-name').textContent = '-';
+                document.getElementById('file-type').textContent = '-';
+                document.getElementById('file-size').textContent = '-';
+                document.getElementById('file-modified').textContent = '-';
+                document.getElementById('preview-content').innerHTML = `
+                    <div class="preview-placeholder">
+                        <i class="fas fa-file-alt"></i>
+                        <p>File preview will appear here</p>
+                    </div>
+                `;
+                processBtn.disabled = true;
+                processBtn.classList.add('btn-disabled');
+                document.getElementById('progress-container').style.display = 'none';
+                document.getElementById('result-area').style.display = 'none';
+                compressionSlider.value = 50;
+                compressionValue.textContent = '50%';
+                document.querySelector('input[name="operation-mode"][value="compress"]').checked = true;
+                compressOptions.style.display = 'block';
+                convertOptions.style.display = 'none';
+                document.getElementById('opt-quality').checked = true;
+                document.getElementById('opt-metadata').checked = false;
+                document.getElementById('opt-preview').checked = true;
+            });
+        });
+    </script>
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DocCompress Pro",
+      "url": "https://doccompresspro.example.com",
+      "description": "Free online document compression and conversion tool for all your file needs.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1245"
+      }
+    }
+    </script>
+</body>
+</html>
